@@ -1,5 +1,5 @@
 .heroSelector {
-    width: 220px;
+    width: 200px;
 }
 
 .defenseHeroesSelection {
@@ -521,4 +521,18 @@
 
 .warning {
     color: orange
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
