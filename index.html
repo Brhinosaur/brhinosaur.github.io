@@ -43,49 +43,87 @@
   <div class="hSpace"></div>
   <h2>Record your GW Result:</h2>
 
-Defense Team:
+  <div class="dropdown-container">
+    Offense Team:
+    <div style="width: 116px;"></div>
+    Defense Team:
+  </div>
   <div class="hSpace"></div>
 
-  <select class="heroSelector" name="hero0" id="heroSelector0">
-    <option value=""></option>
-  </select>
+  <div class="dropdown-container">
 
-  <div class="hSpace"></div>
+    <select class="heroSelector" name="hero0" id="heroSelector0">
+      <option value=""></option>
+    </select>
+    <div style="width: 20px;"></div>
 
-  <select class="heroSelector" name="hero1" id="heroSelector1">
-    <option value=""></option>
-  </select>
 
-  <div class="hSpace"></div>
-
-  <select class="heroSelector" name="hero2" id="heroSelector2">
-    <option value=""></option>
-  </select>
-
-  <div class="hSpace"></div>
-
-  Optional: Filter teams including/excluding a unit
-  <div class="hSpace"></div>
-
-  <div class="defenseHeroesSelection">
     <select class="heroSelector" name="hero3" id="heroSelector3">
       <option value=""></option>
     </select>
 
-    <div class="vSpace"></div>
+  </div>
+  <div class="hSpace"></div>
+
+  <div class="dropdown-container">
+    <select class="heroSelector" name="hero1" id="heroSelector1">
+      <option value=""></option>
+    </select>
+    <div style="width: 20px;"></div>
 
     <select class="heroSelector" name="hero4" id="heroSelector4">
       <option value=""></option>
     </select>
   </div>
-
-
   <div class="hSpace"></div>
+
+  <div class="dropdown-container">
+    <select class="heroSelector" name="hero2" id="heroSelector2">
+      <option value=""></option>
+    </select>
+    <div style="width: 20px;"></div>
+
+    <select class="heroSelector" name="hero5" id="heroSelector5">
+      <option value=""></option>
+    </select>
+  </div>
+  <div class="hSpace"></div>
+
+  <form>
+    Result of the battle? (Offense POV):
+    <label>
+      <input type="radio" name="battleResult" value="win">
+      Win
+    </label>
+
+    <label>
+      <input type="radio" name="battleResult" value="draw">
+      Draw
+    </label>
+
+    <label>
+      <input type="radio" name="battleResult" value="loss">
+      Loss
+    </label>
+  </form>
+  <div class="hSpace"></div>
+  <div class="hSpace"></div>
+
+  <label for="matchupNotes">Matchup Notes:</label>
+  <div class="hSpace"></div>
+  <form>
+    <textarea id="matchupNotes" name="matchupNotes" rows="4" cols="55"></textarea>
+  </form>
 
   <div id="defenseIcons" class="defenseIcons"></div>
 
   <div class="hSpace"></div>
 
+  <input type="button" value="Generate Command to Paste" id="commandButton"></input>
+
+  <div class="hSpace"></div>
+  <div class="hSpace"></div>
+  <div class="hSpace"></div>
   <input type="button" value="Search" id="searchButton"></input>
 
   <div class="resultsRows" id="resultRows"></div>
