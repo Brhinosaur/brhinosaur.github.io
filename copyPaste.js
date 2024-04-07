@@ -23,7 +23,7 @@ buildDefSelector2 = null
 buildDefSelector3 = null
 buildDefSelector4 = null
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     document.title = "Bribbels"
     $("#homeLink").attr("href", window.location.href.split('?')[0])
 
@@ -69,6 +69,9 @@ jQuery(document).ready(function($){
     buildDefSelector4 = $('#buildDefHeroSelector4').select2(excludeOptions);
 
     $("#searchButton").click(search)
+
+    $("#generateCommandButton").click(genCommand)
+
     $("#buildDefSearchButton").click(buildDefSearch)
 
     var queryString = window.location.search;
@@ -90,8 +93,8 @@ jQuery(document).ready(function($){
         }
 
         for (var value of Object.values(heroData)) {
-            var img=new Image();
-            img.src=value.assets.icon;
+            var img = new Image();
+            img.src = value.assets.icon;
         }
 
 
@@ -182,29 +185,29 @@ function showMeta() {
         type: "POST",
         crossDomain: true,
         data: "none",
-        success: function(data) {
+        success: function (data) {
             var json = $.parseJSON(data);
             console.log("meta", json)
             var defenses = json.data
             var offenses = Object.entries(json.offenseData)
             var totalSize = json.totalSize
 
-            $('#intro').html(`This app tracks data from ${totalSize.toLocaleString("en-US")} attacks from top 50 ranked guild wars. Latest update: ${new Date(json.maxTimestamp*1000).toDateString()}.`)
+            $('#intro').html(`This app tracks data from ${totalSize.toLocaleString("en-US")} attacks from top 50 ranked guild wars. Latest update: ${new Date(json.maxTimestamp * 1000).toDateString()}.`)
 
             if (urlParams) {
                 return;
             }
 
-            defenses.sort((a, b) => (b.w+b.l) - (a.w+a.l))
-            offenses.sort((a, b) => (b[1].w+b[1].l) - (a[1].w+a[1].l))
+            defenses.sort((a, b) => (b.w + b.l) - (a.w + a.l))
+            offenses.sort((a, b) => (b[1].w + b[1].l) - (a[1].w + a[1].l))
 
             var html = "</br></br><h2>Top 50 most common meta defenses in past 4 weeks</h2>";
             for (var i = 0; i < 50; i++) {
                 var defense = defenses[i];
-                var percent = (defense.w/(defense.l + defense.w) * 100).toFixed(1);
+                var percent = (defense.w / (defense.l + defense.w) * 100).toFixed(1);
 
                 html +=
-`
+                    `
 <div class="resultRow">
     <div class="imageRow">
             <a href="${"gw-meta.html?def=" + defense.defense.split(",").map(x => heroesById[x]).join(",")}">
@@ -238,11 +241,11 @@ function showMeta() {
             for (var i = 0; i < 50; i++) {
                 var offenseName = offenses[i][0];
                 var offenseWL = offenses[i][1];
-                var percent = (offenseWL.w/(offenseWL.l + offenseWL.w) * 100).toFixed(1);
+                var percent = (offenseWL.w / (offenseWL.l + offenseWL.w) * 100).toFixed(1);
                 // console.log(percent)
                 // console.log(offenseWL)
                 html +=
-`
+                    `
 <div class="resultRow">
     <div class="imageRow">
             <div class="metaFightIconsOffense">
@@ -285,6 +288,44 @@ function formatHeroList(hero) {
     return output;
 };
 
+function genCommand() {
+
+    const textToCopy = "Your text goes here"; // Replace with your desired text
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            console.log("Text copied successfully!");
+            document.getElementById("copyLabel").textContent = "Text copied!";
+        })
+        .catch((err) => {
+            console.error("Error copying text:", err);
+            document.getElementById("copyLabel").textContent = "Copy failed!";
+        });
+
+    heroesOff = [
+        $('#heroSelector0').select2('data')[0],
+        $('#heroSelector1').select2('data')[0],
+        $('#heroSelector2').select2('data')[0]
+    ]
+    var offenseKey = heroes.map(x => x.id).sort()
+    console.log("offkey", offenseKey);
+
+    $('#resultRows').html("Loading..")
+    var offenseHtml = imgHtml(offenseKey.join(","))
+    $('#offenseIcons').html("<br/>" + offenseHtml)
+
+    heroesDef = [
+        $('#heroSelector6').select2('data')[0],
+        $('#heroSelector7').select2('data')[0],
+        $('#heroSelector8').select2('data')[0]
+    ]
+    var defenseKey = heroes.map(x => x.id).sort()
+    console.log("defkey", defenseKey);
+
+    $('#resultRows').html("Loading..")
+    var defenseHtml = imgHtml(defenseKey.join(","))
+    $('#defenseIcons').html("<br/>" + defenseHtml)
+}
+
 function search() {
     heroes = [
         $('#heroSelector0').select2('data')[0],
@@ -309,7 +350,7 @@ function search() {
         type: "POST",
         crossDomain: true,
         data: defenseKey.join(","),
-        success: function(data) {
+        success: function (data) {
             //data downloaded so we call parseJSON function
             //and pass downloaded data
             var json = $.parseJSON(data);
@@ -367,29 +408,29 @@ function search() {
             var html = ""
 
             for (var i = 0; i < Math.min(100, offenses.length); i++) {
-            // for (var offense of offenses) {
+                // for (var offense of offenses) {
                 var offense = offenses[i]
 
-                var percent = (offense[1].w/(offense[1].l + offense[1].w) * 100).toFixed(1);
+                var percent = (offense[1].w / (offense[1].l + offense[1].w) * 100).toFixed(1);
 
                 html +=
-// `
-//         <div class="resultRow">
-//             <div class="imageRow">
-//                 <div class="fightIcons">
-//                     ${imgHtml(offense[0])}
-//                 </div>
-//                 <div class="resultsContainer">
-//                     <div class="results W">${offense[1].w}W</div>
-//                     <div class="results L">${offense[1].l}L</div>
-//                 </div>
-//                 <div class="metaResultsPercent">
-//                     ${isNaN(percent) ? "No results" : percent + " %"}
-//                 </div>
-//             </div>
-//         </div>
-// `
-                `
+                    // `
+                    //         <div class="resultRow">
+                    //             <div class="imageRow">
+                    //                 <div class="fightIcons">
+                    //                     ${imgHtml(offense[0])}
+                    //                 </div>
+                    //                 <div class="resultsContainer">
+                    //                     <div class="results W">${offense[1].w}W</div>
+                    //                     <div class="results L">${offense[1].l}L</div>
+                    //                 </div>
+                    //                 <div class="metaResultsPercent">
+                    //                     ${isNaN(percent) ? "No results" : percent + " %"}
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                    // `
+                    `
 <div class="resultRow">
     <div class="imageRow">
         <div class="metaFightLookup">
@@ -446,7 +487,7 @@ function buildDefSearch() {
         type: "POST",
         crossDomain: true,
         data: defenseKey.join(","),
-        success: function(data) {
+        success: function (data) {
             //data downloaded so we call parseJSON function
             //and pass downloaded data
             var json = $.parseJSON(data);
@@ -504,29 +545,29 @@ function buildDefSearch() {
             var html = ""
 
             for (var i = 0; i < Math.min(200, offenses.length); i++) {
-            // for (var offense of offenses) {
+                // for (var offense of offenses) {
                 var offense = offenses[i]
 
-                var percent = (offense[1].l/(offense[1].l + offense[1].w) * 100).toFixed(1);
+                var percent = (offense[1].l / (offense[1].l + offense[1].w) * 100).toFixed(1);
 
                 html +=
-// `
-//         <div class="resultRow">
-//             <div class="imageRow">
-//                 <div class="fightIcons">
-//                     ${imgHtml(offense[0])}
-//                 </div>
-//                 <div class="resultsContainer">
-//                     <div class="results W">${offense[1].w}W</div>
-//                     <div class="results L">${offense[1].l}L</div>
-//                 </div>
-//                 <div class="metaResultsPercent">
-//                     ${isNaN(percent) ? "No results" : percent + " %"}
-//                 </div>
-//             </div>
-//         </div>
-// `
-                `
+                    // `
+                    //         <div class="resultRow">
+                    //             <div class="imageRow">
+                    //                 <div class="fightIcons">
+                    //                     ${imgHtml(offense[0])}
+                    //                 </div>
+                    //                 <div class="resultsContainer">
+                    //                     <div class="results W">${offense[1].w}W</div>
+                    //                     <div class="results L">${offense[1].l}L</div>
+                    //                 </div>
+                    //                 <div class="metaResultsPercent">
+                    //                     ${isNaN(percent) ? "No results" : percent + " %"}
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                    // `
+                    `
 <div class="resultRow">
     <div class="imageRow">
         <div class="metaFightLookup">
@@ -583,7 +624,7 @@ async function fetchCache(url) {
     return json;
 }
 
-function sortByAttribute (arr, attributeStr) {
+function sortByAttribute(arr, attributeStr) {
     function compare(a, b) {
         if (a[attributeStr] < b[attributeStr])
             return -1;
@@ -601,8 +642,8 @@ function imgHtml(offenseStr) {
     var heroNames = heroIds.map(x => heroesById[x])
     var imgHtml = heroNames.map(x => {
         return heroData[x] ?
-        `<img class="portrait" title="${x}" src=${heroData[x].assets.icon}></img>` :
-        `<img class="portrait" src=${questionCircle}></img>`
+            `<img class="portrait" title="${x}" src=${heroData[x].assets.icon}></img>` :
+            `<img class="portrait" src=${questionCircle}></img>`
     })
 
     return imgHtml.join(`<div class="vSpace"></div>`)

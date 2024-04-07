@@ -607,3 +607,9 @@
   display: flex;
   flex-direction: row;
 }
+
+/* Matchup icons below the Offense and Defense Teams */
+.offenseIcons {
+  display: flex;
+  flex-direction: row;
+}

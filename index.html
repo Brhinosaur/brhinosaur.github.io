@@ -117,30 +117,14 @@
 
   <div class="hSpace"></div>
 
-  <input type="button" value="Generate Command to Paste" id="commandButton"></input>
-
   <div class="hSpace"></div>
 
-  <button onclick="copyToClipboard()">Copy Text</button>
+  <!-- generateCommand -->
+  <input type="button" value="Generate Command to Copy/Paste" id="generateCommandButton"></input>
   <span id="copyLabel"></span>
-  <script>
-    function copyToClipboard() {
-      const textToCopy = "Your text goes here"; // Replace with your desired text
-      navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-          console.log("Text copied successfully!");
-          document.getElementById("copyLabel").textContent = "Text copied!";
-        })
-        .catch((err) => {
-          console.error("Error copying text:", err);
-          document.getElementById("copyLabel").textContent = "Copy failed!";
-        });
-    }
-  </script>
 
   <div class="hSpace"></div>
   <div class="hSpace"></div>
-  <input type="button" value="Search" id="searchButton"></input>
 
   <div class="resultsRows" id="resultRows"></div>
 
