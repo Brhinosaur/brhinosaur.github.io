@@ -23,12 +23,8 @@ buildDefSelector2 = null
 buildDefSelector3 = null
 buildDefSelector4 = null
 
-buildDefSelector6 = null
-buildDefSelector7 = null
-buildDefSelector8 = null
-
 jQuery(document).ready(function($){
-    document.title = "Fribbels GW Meta Tracker"
+    document.title = "Bribbels"
     $("#homeLink").attr("href", window.location.href.split('?')[0])
 
     var options = {
