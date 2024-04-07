@@ -321,7 +321,8 @@ function genCommand() {
 
     var defenseHtml = imgHtml(defenseKey.join(","))
 
-    $('#matchupIcons').html("<br/>" + offenseHtml + defenseHtml)
+    $('#offenseIcons').html("<br/>" + offenseHtml)
+    $('#defenseIcons').html(defenseHtml)
 
     // var names = defenseKey.map(x => heroesById[x]).join(",")
     // window.history.replaceState(null, null, "?def=" + names);
