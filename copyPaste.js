@@ -13,11 +13,19 @@ selector2 = null
 selector3 = null
 selector4 = null
 
+selector6 = null
+selector7 = null
+selector8 = null
+
 buildDefSelector0 = null
 buildDefSelector1 = null
 buildDefSelector2 = null
 buildDefSelector3 = null
 buildDefSelector4 = null
+
+buildDefSelector6 = null
+buildDefSelector7 = null
+buildDefSelector8 = null
 
 jQuery(document).ready(function($){
     document.title = "Fribbels GW Meta Tracker"
@@ -53,6 +61,10 @@ jQuery(document).ready(function($){
     selector2 = $('#heroSelector2').select2(options);
     selector3 = $('#heroSelector3').select2(includeOptions);
     selector4 = $('#heroSelector4').select2(excludeOptions);
+
+    selector6 = $('#heroSelector6').select2(options);
+    selector7 = $('#heroSelector7').select2(options);
+    selector8 = $('#heroSelector8').select2(options);
 
     buildDefSelector0 = $('#buildDefHeroSelector0').select2(options);
     buildDefSelector1 = $('#buildDefHeroSelector1').select2(options);
@@ -106,11 +118,19 @@ jQuery(document).ready(function($){
             var newOption2 = new Option(data.text, data.id, false, false);
             var newOption3 = new Option(data.text, data.id, false, false);
             var newOption4 = new Option(data.text, data.id, false, false);
+
+            var newOption6 = new Option(data.text, data.id, false, false);
+            var newOption7 = new Option(data.text, data.id, false, false);
+            var newOption8 = new Option(data.text, data.id, false, false);
             $('#heroSelector0').append(newOption0);
             $('#heroSelector1').append(newOption1);
             $('#heroSelector2').append(newOption2);
             $('#heroSelector3').append(newOption3);
             $('#heroSelector4').append(newOption4);
+
+            $('#heroSelector6').append(newOption6);
+            $('#heroSelector7').append(newOption7);
+            $('#heroSelector8').append(newOption8);
 
             var buildDefNewOption0 = new Option(data.text, data.id, false, false);
             var buildDefNewOption1 = new Option(data.text, data.id, false, false);
