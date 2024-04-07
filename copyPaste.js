@@ -306,7 +306,7 @@ function genCommand() {
         $('#heroSelector1').select2('data')[0],
         $('#heroSelector2').select2('data')[0]
     ]
-    var offenseKey = heroes.map(x => x.id).sort()
+    var offenseKey = heroesOff.map(x => x.id).sort()
     console.log("offkey", offenseKey);
 
     $('#resultRows').html("Loading..")
@@ -318,7 +318,7 @@ function genCommand() {
         $('#heroSelector7').select2('data')[0],
         $('#heroSelector8').select2('data')[0]
     ]
-    var defenseKey = heroes.map(x => x.id).sort()
+    var defenseKey = heroesDef.map(x => x.id).sort()
     console.log("defkey", defenseKey);
 
     $('#resultRows').html("Loading..")
