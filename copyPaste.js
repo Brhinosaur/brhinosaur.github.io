@@ -324,6 +324,9 @@ function genCommand() {
     $('#resultRows').html("Loading..")
     var defenseHtml = imgHtml(defenseKey.join(","))
     $('#defenseIcons').html("<br/>" + defenseHtml)
+
+    var names = defenseKey.map(x => heroesById[x]).join(",")
+    window.history.replaceState(null, null, "?def=" + names);
 }
 
 function search() {
