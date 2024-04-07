@@ -1,213 +1,211 @@
 <!DOCTYPE html>
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N94ZZSPVVY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-N94ZZSPVVY"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-    gtag('config', 'G-N94ZZSPVVY');
-  </script>
-  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-  <meta content="utf-8" http-equiv="encoding">
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <script src="jquery.min.js"></script>
+		gtag('config', 'G-N94ZZSPVVY');
+	</script>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+	<script src="jquery.min.js"></script>
 
-  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+	<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
 
-  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
-  <link rel="stylesheet" href="copyPaste.css" />
+	<link rel="stylesheet" href="copyPaste.css" />
 
 </head>
 
 
 <body class='bodyClass'>
 
-  <a id="homeLink" style="text-decoration: none;color: inherit">
-    <h1>Bribbels Epic 7 Guild War Utility</h1>
-  </a>
+	<a id="homeLink" style="text-decoration: none;color: inherit">
+		<h1>Bribbels Epic 7 Guild War Utility</h1>
+	</a>
 
-  <p id="intro" class="intro">
-    Testing the Bribbels app...
-  </p>
+	<p id="intro" class="intro">
+		Testing the Bribbels app...
+	</p>
 
-  <h2 class="warning">
-    Testing warning...
-  </h2>
-
-
-  <div class="hSpace"></div>
-  <h2>Record your GW Result:</h2>
-
-  <div class="dropdown-container">
-    Offense Team:
-    <div style="width: 116px;"></div>
-    Defense Team:
-  </div>
-  <div class="hSpace"></div>
-
-  <div class="dropdown-container">
-
-    <select class="heroSelector" name="hero0" id="heroSelector0" tabindex="1">
-      <option value=""></option>
-    </select>
-    <div style="width: 20px;"></div>
-    <select class="heroSelector" name="hero6" id="heroSelector6" tabindex="4">
-      <option value=""></option>
-    </select>
-
-  </div>
-  <div class="hSpace"></div>
-
-  <div class="dropdown-container">
-    <select class="heroSelector" name="hero1" id="heroSelector1" tabindex="2">
-      <option value=""></option>
-    </select>
-    <div style="width: 20px;"></div>
-
-    <select class="heroSelector" name="hero7" id="heroSelector7" tabindex="5">
-      <option value=""></option>
-    </select>
-  </div>
-  <div class="hSpace"></div>
-
-  <div class="dropdown-container">
-    <select class="heroSelector" name="hero2" id="heroSelector2" tabindex="3">
-      <option value=""></option>
-    </select>
-    <div style="width: 20px;"></div>
-
-    <select class="heroSelector" name="hero8" id="heroSelector8" tabindex="6">
-      <option value=""></option>
-    </select>
-  </div>
-  <div class="hSpace"></div>
-
-  <div class="matchupIcons">
-    <div id="offenseIcons" class="offenseIcons"></div>
-    <div style="width: 30px;"></div>
-    <div id="defenseIcons" class="defenseIcons"></div>
-  </div>
-
-  
-
-  <div class="hSpace"></div>
-
-  <form>
-    Result of the battle? (Offense POV):
-    <label>
-      <input type="radio" name="battleResult" value="win" tabindex="7">
-      Win
-    </label>
-
-    <label>
-      <input type="radio" name="battleResult" value="draw" tabindex="8">
-      Draw
-    </label>
-
-    <label>
-      <input type="radio" name="battleResult" value="loss" tabindex="9">
-      Loss
-    </label>
-  </form>
-  <div class="hSpace"></div>
-  <div class="hSpace"></div>
-
-  <label for="matchupNotes">Matchup Notes:</label>
-  <div class="hSpace"></div>
-  <form>
-    <textarea id="matchupNotes" name="matchupNotes" rows="4" cols="55" tabindex="10"></textarea>
-  </form>
+	<h2 class="warning">
+		Testing warning...
+	</h2>
 
 
+	<div class="hSpace"></div>
+	<h2>Record your GW Result:</h2>
 
-  <div class="hSpace"></div>
+	<div class="dropdown-container">
+		Offense Team:
+		<div style="width: 150px;"></div>
+		Defense Team:
+	</div>
+	<div class="hSpace"></div>
 
-  <div class="hSpace"></div>
+	<div class="dropdown-container">
+		<select class="heroSelector" name="hero0" id="heroSelector0" tabindex="1">
+			<option value=""></option>
+		</select>
+		<div style="width: 5px;"></div>
+		<input type="checkbox" id="dead0" name="dead0">
+		<div style="width: 30px;"></div>
+		<select class="heroSelector" name="hero6" id="heroSelector6" tabindex="4">
+			<option value=""></option>
+		</select>
 
-  <!-- generateCommand -->
-  <input type="button" value="Generate Command to Copy/Paste" id="generateCommandButton" tabindex="11"></input>
-  <span id="copyLabel"></span>
+	</div>
+	<div class="hSpace"></div>
 
-  <div class="hSpace"></div>
-  <div class="hSpace"></div>
+	<div class="dropdown-container">
+		<select class="heroSelector" name="hero1" id="heroSelector1" tabindex="2">
+			<option value=""></option>
+		</select>
+		<div style="width: 5px;"></div>
+		<input type="checkbox" id="dead1" name="dead1">
+		<div style="width: 30px;"></div>
+		<select class="heroSelector" name="hero7" id="heroSelector7" tabindex="5">
+			<option value=""></option>
+		</select>
+	</div>
+	<div class="hSpace"></div>
 
-  <div class="resultsRows" id="resultRows"></div>
+	<div class="dropdown-container">
+		<select class="heroSelector" name="hero2" id="heroSelector2" tabindex="3">
+			<option value=""></option>
+		</select>
+		<div style="width: 5px;"></div>
+		<input type="checkbox" id="dead2" name="dead2">
+		<div style="width: 30px;"></div>
+		<select class="heroSelector" name="hero8" id="heroSelector8" tabindex="6">
+			<option value=""></option>
+		</select>
+	</div>
+	<div class="hSpace"></div>
+
+	<div class="matchupIcons">
+		<div id="offenseIcons" class="offenseIcons"></div>
+		<div style="width: 30px;"></div>
+		<div id="defenseIcons" class="defenseIcons"></div>
+	</div>
+
+	<div class="hSpace"></div>
+
+	<form>
+		Result of the battle? (Offense POV):
+		<label>
+			<input type="radio" name="battleResult" value="win" tabindex="7">
+			Win
+		</label>
+
+		<label>
+			<input type="radio" name="battleResult" value="draw" tabindex="8">
+			Draw
+		</label>
+
+		<label>
+			<input type="radio" name="battleResult" value="loss" tabindex="9">
+			Loss
+		</label>
+	</form>
+	<div class="hSpace"></div>
+	<div class="hSpace"></div>
+
+	<label for="matchupNotes">Matchup Notes:</label>
+	<div class="hSpace"></div>
+	<form>
+		<textarea id="matchupNotes" name="matchupNotes" rows="4" cols="55" tabindex="10"></textarea>
+	</form>
+
+	<div class="hSpace"></div>
+	<div class="hSpace"></div>
+
+	<!-- generateCommand -->
+	<input type="button" value="Generate Command to Copy/Paste" id="generateCommandButton" tabindex="11"></input>
+	<span id="copyLabel"></span>
+
+	<div class="hSpace"></div>
+	<div class="hSpace"></div>
+
+	<div class="resultsRows" id="resultRows"></div>
 
 
 
-  <div class="hSpace"></div>
-  <div class="hSpace"></div>
-  <div class="hSpace"></div>
+	<div class="hSpace"></div>
+	<div class="hSpace"></div>
+	<div class="hSpace"></div>
 
 
-  <div class="hSpace"></div>
-  <h2>Building a defense</h2>
+	<div class="hSpace"></div>
+	<h2>Building a defense</h2>
 
-  Search for units to find common defenses using those units
-  <div class="hSpace"></div>
+	Search for units to find common defenses using those units
+	<div class="hSpace"></div>
 
-  <div class="defenseHeroesSelection">
-    <select class="heroSelector" name="hero0" id="buildDefHeroSelector0">
-      <option value=""></option>
-    </select>
+	<div class="defenseHeroesSelection">
+		<select class="heroSelector" name="hero0" id="buildDefHeroSelector0">
+			<option value=""></option>
+		</select>
 
-    <div class="vSpace"></div>
+		<div class="vSpace"></div>
 
-    <select class="heroSelector" name="hero1" id="buildDefHeroSelector1">
-      <option value=""></option>
-    </select>
+		<select class="heroSelector" name="hero1" id="buildDefHeroSelector1">
+			<option value=""></option>
+		</select>
 
-    <div class="vSpace"></div>
+		<div class="vSpace"></div>
 
-    <select class="heroSelector" name="hero2" id="buildDefHeroSelector2">
-      <option value=""></option>
-    </select>
-  </div>
+		<select class="heroSelector" name="hero2" id="buildDefHeroSelector2">
+			<option value=""></option>
+		</select>
+	</div>
 
-  <div class="hSpace"></div>
+	<div class="hSpace"></div>
 
-  Optional: Filter teams including/excluding a unit
-  <div class="hSpace"></div>
+	Optional: Filter teams including/excluding a unit
+	<div class="hSpace"></div>
 
-  <div class="defenseHeroesSelection">
-    <select class="heroSelector" name="hero3" id="buildDefHeroSelector3">
-      <option value=""></option>
-    </select>
+	<div class="defenseHeroesSelection">
+		<select class="heroSelector" name="hero3" id="buildDefHeroSelector3">
+			<option value=""></option>
+		</select>
 
-    <div class="vSpace"></div>
+		<div class="vSpace"></div>
 
-    <select class="heroSelector" name="hero4" id="buildDefHeroSelector4">
-      <option value=""></option>
-    </select>
-  </div>
+		<select class="heroSelector" name="hero4" id="buildDefHeroSelector4">
+			<option value=""></option>
+		</select>
+	</div>
 
-  <div class="hSpace"></div>
+	<div class="hSpace"></div>
 
-  <div id="buildDefDefenseIcons" class="defenseIcons"></div>
+	<div id="buildDefDefenseIcons" class="defenseIcons"></div>
 
-  <div class="hSpace"></div>
+	<div class="hSpace"></div>
 
-  <input type="button" value="Search" id="buildDefSearchButton"></input>
-  <div class="hSpace"></div>
+	<input type="button" value="Search" id="buildDefSearchButton"></input>
+	<div class="hSpace"></div>
 
-  <div class="resultsRows" id="buildDefResultRows"></div>
-
-
-
-  <div class="resultsRows" id="metaRows"></div>
+	<div class="resultsRows" id="buildDefResultRows"></div>
 
 
-  <a href="https://www.buymeacoffee.com/fribbels">
-    <div class="coffeeContainer">
-      <img class="coffeeContainerImage" id="coffeeImage" src="coffee.png">
-    </div>
-  </a>
 
-  <script src="copyPaste.js"></script>
+	<div class="resultsRows" id="metaRows"></div>
+
+
+	<a href="https://www.buymeacoffee.com/fribbels">
+		<div class="coffeeContainer">
+			<img class="coffeeContainerImage" id="coffeeImage" src="coffee.png">
+		</div>
+	</a>
+
+	<script src="copyPaste.js"></script>
 
 </body>
