@@ -613,3 +613,8 @@
   display: flex;
   flex-direction: row;
 }
+
+.matchupIcons {
+  display: flex;
+  flex-direction: row;
+}
