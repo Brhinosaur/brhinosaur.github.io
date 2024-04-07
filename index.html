@@ -87,27 +87,25 @@
   </div>
   <div class="hSpace"></div>
 
-  <div class="matchupIcons">
-    <div id="offenseIcons" class="offenseIcons"></div>
-    <div style="width: 30px;"></div>
-    <div id="defenseIcons" class="defenseIcons"></div>
-  </div>
+
+  <div id="matchupIcons" class="matchupIcons"></div>
+
   <div class="hSpace"></div>
 
   <form>
     Result of the battle? (Offense POV):
     <label>
-      <input type="radio" name="battleResult" value="win">
+      <input type="radio" name="battleResult" value="win" tabindex="7">
       Win
     </label>
 
     <label>
-      <input type="radio" name="battleResult" value="draw">
+      <input type="radio" name="battleResult" value="draw" tabindex="8">
       Draw
     </label>
 
     <label>
-      <input type="radio" name="battleResult" value="loss">
+      <input type="radio" name="battleResult" value="loss" tabindex="9">
       Loss
     </label>
   </form>
@@ -117,17 +115,17 @@
   <label for="matchupNotes">Matchup Notes:</label>
   <div class="hSpace"></div>
   <form>
-    <textarea id="matchupNotes" name="matchupNotes" rows="4" cols="55"></textarea>
+    <textarea id="matchupNotes" name="matchupNotes" rows="4" cols="55" tabindex="10"></textarea>
   </form>
 
-  
+
 
   <div class="hSpace"></div>
 
   <div class="hSpace"></div>
 
   <!-- generateCommand -->
-  <input type="button" value="Generate Command to Copy/Paste" id="generateCommandButton"></input>
+  <input type="button" value="Generate Command to Copy/Paste" id="generateCommandButton" tabindex="11"></input>
   <span id="copyLabel"></span>
 
   <div class="hSpace"></div>

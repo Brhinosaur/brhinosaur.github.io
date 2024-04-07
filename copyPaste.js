@@ -309,9 +309,7 @@ function genCommand() {
     var offenseKey = heroesOff.map(x => x.id).sort()
     console.log("offkey", offenseKey);
 
-    $('#resultRows').html("Loading..")
     var offenseHtml = imgHtml(offenseKey.join(","))
-    $('#offenseIcons').html("<br/>" + offenseHtml)
 
     heroesDef = [
         $('#heroSelector6').select2('data')[0],
@@ -321,9 +319,9 @@ function genCommand() {
     var defenseKey = heroesDef.map(x => x.id).sort()
     console.log("defkey", defenseKey);
 
-    $('#resultRows').html("Loading..")
     var defenseHtml = imgHtml(defenseKey.join(","))
-    $('#defenseIcons').html("<br/>" + defenseHtml)
+
+    $('#matchupIcons').html("<br/>" + offenseHtml + defenseHtml)
 
     // var names = defenseKey.map(x => heroesById[x]).join(",")
     // window.history.replaceState(null, null, "?def=" + names);
