@@ -289,9 +289,6 @@ function formatHeroList(hero) {
 };
 
 function genCommand() {
-
-    
-
     heroesOff = [
         $('#heroSelector0').select2('data')[0],
         $('#heroSelector1').select2('data')[0],
