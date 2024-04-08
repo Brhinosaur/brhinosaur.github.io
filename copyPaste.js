@@ -290,16 +290,7 @@ function formatHeroList(hero) {
 
 function genCommand() {
 
-    const textToCopy = "Your text goes here"; // Replace with your desired text
-    navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-            console.log("Text copied successfully!");
-            document.getElementById("copyLabel").textContent = "Text copied!";
-        })
-        .catch((err) => {
-            console.error("Error copying text:", err);
-            document.getElementById("copyLabel").textContent = "Copy failed!";
-        });
+    
 
     heroesOff = [
         $('#heroSelector0').select2('data')[0],
@@ -328,6 +319,29 @@ function genCommand() {
     var offenseNames = offenseKey.map(x => heroesById[x]).join(",")
     console.log("defenseNames", defenseNames)
     console.log("offenseNames", offenseNames)
+
+    if ($('input[name=battleResult]:checked').length > 0) {
+        // At least one radio button is checked
+        let battleResult = $('input[name="battleResult"]:checked').val();
+        console.log(battleResult)
+    }
+    else {
+        document.getElementById("copyLabel").textContent = "Please fill out the Result!";
+        return
+    }
+
+    let matchupNotes = $('#matchupNotes').val();
+
+    const textToCopy = "!command gwresult;" + offenseNames + ";" + defenseNames + ";" + battleResult + ";" + matchupNotes; // Replace with your desired text
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            console.log("Text copied successfully!");
+            document.getElementById("copyLabel").textContent = "Text copied!";
+        })
+        .catch((err) => {
+            console.error("Error copying text:", err);
+            document.getElementById("copyLabel").textContent = "Copy failed!";
+        });
 }
 
 function search() {
