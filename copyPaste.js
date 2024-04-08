@@ -164,6 +164,35 @@ jQuery(document).ready(function ($) {
         checkReady();
     })
 
+    let dropdowns = [document.getElementById('heroSelector0'), document.getElementById('heroSelector1'), document.getElementById('heroSelector2'), document.getElementById('heroSelector6'), document.getElementById('heroSelector7'), document.getElementById('heroSelector8')];
+
+    dropdowns.forEach(function(dropdown) {
+        dropdown.onchange = function() {
+            heroesOff = [
+                $('#heroSelector0').select2('data')[0],
+                $('#heroSelector1').select2('data')[0],
+                $('#heroSelector2').select2('data')[0]
+            ]
+            var offenseKey = heroesOff.map(x => x.id).sort()
+            console.log("offkey", offenseKey);
+        
+            var offenseHtml = imgHtml(offenseKey.join(","))
+        
+            heroesDef = [
+                $('#heroSelector6').select2('data')[0],
+                $('#heroSelector7').select2('data')[0],
+                $('#heroSelector8').select2('data')[0]
+            ]
+            var defenseKey = heroesDef.map(x => x.id).sort()
+            console.log("defkey", defenseKey);
+        
+            var defenseHtml = imgHtml(defenseKey.join(","))
+        
+            $('#offenseIcons').html("<br/>" + offenseHtml)
+            $('#defenseIcons').html(defenseHtml)
+        }
+    });
+
 });
 
 function checkReady() {
@@ -289,6 +318,8 @@ function formatHeroList(hero) {
 };
 
 function genCommand() {
+    let copyLabel = document.getElementById("copyLabel")
+
     heroesOff = [
         $('#heroSelector0').select2('data')[0],
         $('#heroSelector1').select2('data')[0],
@@ -324,9 +355,8 @@ function genCommand() {
         console.log(battleResult)
     }
     else {
-        let matchupNotesBox =  document.getElementById("copyLabel")
-        matchupNotesBox.textContent = "Please fill out the Result!";
-        matchupNotesBox.style.color = 'red'
+        copyLabel.textContent = "Please fill out the Result!";
+        copyLabel.style.color = 'red'
         return
     }
 
@@ -336,11 +366,13 @@ function genCommand() {
     navigator.clipboard.writeText(textToCopy)
         .then(() => {
             console.log("Text copied successfully!");
-            document.getElementById("copyLabel").textContent = "Text copied!";
+            copyLabel.textContent = "Command copied! Paste into the discord channel.";
+            copyLabel.style.color = 'green'
         })
         .catch((err) => {
             console.error("Error copying text:", err);
-            document.getElementById("copyLabel").textContent = "Copy failed!";
+            copyLabel.textContent = "Command failed!";
+            copyLabel.style.color = 'red'
         });
 }
 
