@@ -317,13 +317,16 @@ function genCommand() {
     console.log("defenseNames", defenseNames)
     console.log("offenseNames", offenseNames)
 
+    let battleResult = ''
     if ($('input[name=battleResult]:checked').length > 0) {
         // At least one radio button is checked
-        let battleResult = $('input[name="battleResult"]:checked').val();
+        battleResult = $('input[name="battleResult"]:checked').val();
         console.log(battleResult)
     }
     else {
-        document.getElementById("copyLabel").textContent = "Please fill out the Result!";
+        let matchupNotesBox =  document.getElementById("copyLabel")
+        matchupNotesBox.textContent = "Please fill out the Result!";
+        matchupNotesBox.style.color = 'red'
         return
     }
 
